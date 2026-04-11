@@ -85,8 +85,8 @@ function getGryffindorHousePeople(list) {
 function findTeachersHavingPets(list) {
   let result = [];
   list.forEach((person) => {
-    const { firstName, lastName, pet } = person;
-    if (pet !== null)
+    const { firstName, lastName, pet, occupation } = person;
+    if (pet !== null && occupation === "Teacher")
       result.push(`
       ${firstName} ${lastName}`);
   });
