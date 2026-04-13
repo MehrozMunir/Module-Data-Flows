@@ -17,3 +17,17 @@
 button.btn-info {
   margin: 20px;
 }
+
+.jumbotron{
+  width: 100%;
+  height: 1%;
+  padding: 10px 10px 10px 10px;
+}
+#deleted-row-message{
+  transition: opacity 0.5s ease;
+  opacity: 1;
+  color:red;
+}
+.hidden-deleted-message {
+  opacity: 0 !important;
+}

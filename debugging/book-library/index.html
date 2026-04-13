@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title> </title>
     <meta
-      charset="utf-8"
+      charset="utf-8" >
+    <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+      content="width=device-width, initial-scale=1.0" >
+    <title>My Book Library</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    >
+    <link rel="stylesheet" type="text/css" href="style.css" >
   </head>
 
   <body>
@@ -28,23 +28,28 @@
     </button>
 
     <div id="demo" class="collapse">
+      <form id="bookForm" onsubmit="return addNewBook(event)">
       <div class="form-group">
         <label for="title">Title:</label>
         <input
-          type="title"
+          type="text"
           class="form-control"
           id="title"
           name="title"
           required
-        />
+          pattern=".*\S.*" 
+          title="The title cannot be empty or consist only of spaces."
+        >
         <label for="author">Author: </label>
         <input
-          type="author"
+          type="text"
           class="form-control"
           id="author"
           name="author"
           required
-        />
+          pattern="^[A-Za-z\.\-\s]*[A-Za-z\.\-][A-Za-z\.\-\s]*$"
+          title="Author name must contain letters and cannot be only spaces."
+        >
         <label for="pages">Pages:</label>
         <input
           type="number"
@@ -52,24 +57,27 @@
           id="pages"
           name="pages"
           required
-        />
+          min="1"
+          step="1"
+          pattern=""
+        >
         <label class="form-check-label">
           <input
             type="checkbox"
             class="form-check-input"
             id="check"
             value=""
-          />Read
+          >Read
         </label>
         <input
           type="submit"
           value="Submit"
           class="btn btn-primary"
-          onclick="submit();"
-        />
+        >
       </div>
+    </form>
     </div>
-
+    <p id="deleted-row-message"></p>
     <table class="table" id="display">
       <thead class="thead-dark">
         <tr>
@@ -77,20 +85,13 @@
           <th>Author</th>
           <th>Number of Pages</th>
           <th>Read</th>
-          <th></th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
       </tbody>
     </table>
 
-    <script src="script.js"></script>
+    <script src="script.js" ></script>
   </body>
 </html>
