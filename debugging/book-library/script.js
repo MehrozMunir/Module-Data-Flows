@@ -1,4 +1,4 @@
-let myLibrary = [];
+const myLibrary = [];
 
 window.addEventListener("load", function () {
   populateStorage();
@@ -78,14 +78,14 @@ function render() {
     const deleteCell = row.insertCell(4);
     titleCell.textContent = myLibrary[i].title;
     authorCell.textContent = myLibrary[i].author;
-    pagesCell.textContent = myLibrary[i].pages;
+    pagesCell.textContent = Number(myLibrary[i].pages);
 
     //add and wait for action for read/unread button
     const changeButton = document.createElement("button");
     changeButton.className = "btn btn-success";
     wasReadCell.appendChild(changeButton);
     let readStatus = "";
-    myLibrary[i].check ? (readStatus = "Yes") : (readStatus = "No");
+    readStatus = myLibrary[i].check ? "Yes" : "No";
     changeButton.innerText = readStatus;
 
     changeButton.addEventListener("click", function () {
