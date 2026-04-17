@@ -57,7 +57,7 @@ function addNewBook(event) {
 function Book(title, author, pages, check) {
   this.title = title;
   this.author = author;
-  this.pages = pages;
+  this.pages = Number(pages);
   this.check = check;
 }
 
@@ -78,7 +78,7 @@ function render() {
     const deleteCell = row.insertCell(4);
     titleCell.textContent = myLibrary[i].title;
     authorCell.textContent = myLibrary[i].author;
-    pagesCell.textContent = Number(myLibrary[i].pages);
+    pagesCell.textContent = myLibrary[i].pages;
 
     //add and wait for action for read/unread button
     const changeButton = document.createElement("button");
